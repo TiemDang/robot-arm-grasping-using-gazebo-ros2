@@ -1,0 +1,479 @@
+<sdf version='1.11'>
+  <model name='4dof_URDF_9'>
+    <joint name="world_fixed_joint" type="fixed">
+      <parent>world</parent>
+      <child>base_link</child>
+    </joint>
+    <link name='base_link'>
+      <inertial>
+        <pose>2.50508782488874 -0.71192986336383102 -0.14514062831916799 0 0 0</pose>
+        <mass>27.133636308573301</mass>
+        <inertia>
+          <ixx>0.60877692553836704</ixx>
+          <ixy>1.8206785670014902e-05</ixy>
+          <ixz>0.000271770918421296</ixz>
+          <iyy>0.67602874820394898</iyy>
+          <iyz>-0.028158160774242401</iyz>
+          <izz>0.49421855447897201</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 0.25 1</diffuse>
+          <ambient>0.25 0.25 0.25 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_0' type='revolute'>
+      <pose relative_to='base_link'>2.5049999999999999 0.16780999999999999 -0.32162000000000002 1.5708 0 1.8310999999999999</pose>
+      <parent>base_link</parent>
+      <child>link_1</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_1'>
+      <pose relative_to='joint_0'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 -0.130581484630826 0 0 0 0</pose>
+        <mass>2.98648132353624</mass>
+        <inertia>
+          <ixx>0.024095478278114899</ixx>
+          <ixy>3.6152616165919499e-18</ixy>
+          <ixz>-1.77809156287623e-17</ixz>
+          <iyy>0.0105603189198943</iyy>
+          <iyz>-1.10023536061408e-17</iyz>
+          <izz>0.023097390040476801</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_1' type='revolute'>
+      <pose relative_to='link_1'>0 -0.074999999999999997 0 -3.1415853071795872 -8.4703294725430034e-22 -2.3252999999999999</pose>
+      <parent>link_1</parent>
+      <child>link_2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_2'>
+      <pose relative_to='joint_1'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-3.3306690738754701e-16 0.098401308785058206 -2.40747498336802e-06 0 0 0</pose>
+        <mass>3.1988210103973702</mass>
+        <inertia>
+          <ixx>0.0587854336457432</ixx>
+          <ixy>9.8011876392689601e-17</ixy>
+          <ixz>-1.38777878078145e-17</ixz>
+          <iyy>0.016602340998814</iyy>
+          <iyz>1.33143591161565e-06</iyz>
+          <izz>0.046963499504171398</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_2' type='revolute'>
+      <pose relative_to='link_2'>0 0.25 0 -3.1415853071795872 -4.2351647362715017e-22 0.7446600000000001</pose>
+      <parent>link_2</parent>
+      <child>link_3</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_3'>
+      <pose relative_to='joint_2'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.152052929759594 6.9388939039072303e-16 9.9999999392252903e-08 0 0 0</pose>
+        <mass>5.34386283305885</mass>
+        <inertia>
+          <ixx>0.029184048864934801</ixx>
+          <ixy>1.97324795392362e-16</ixy>
+          <ixz>-3.05745012640912e-16</ixz>
+          <iyy>0.072977440788776896</iyy>
+          <iyz>1.46150452851046e-16</iyz>
+          <izz>0.065437785881305499</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_3_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_3_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_3.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_3' type='prismatic'>
+      <pose relative_to='link_3'>-0.24415999999999999 0 0 -0.0021926535898148733 1.5707926536359933 3.1390490535897912</pose>
+      <parent>link_3</parent>
+      <child>link_4</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_4'>
+      <pose relative_to='joint_3'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-8.8817841970012504e-16 -7.2164496600635205e-16 0.19380821219524699 0 0 0</pose>
+        <mass>5.9802743338823099</mass>
+        <inertia>
+          <ixx>0.055534998105861898</ixx>
+          <ixy>8.3591987498632404e-17</ixy>
+          <ixz>9.9746599868666396e-17</ixz>
+          <iyy>0.061090198105861998</iyy>
+          <iyz>1.60245081093358e-16</iyz>
+          <izz>0.019852723450247099</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_4_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_4.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_4_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_4.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_4' type='revolute'>
+      <pose relative_to='link_4'>0 0 0.33409 0 0 -2.3610000000000002</pose>
+      <parent>link_4</parent>
+      <child>link_5</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>1</lower>
+          <upper>1</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_5'>
+      <pose relative_to='joint_4'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-6.6613381477509402e-16 2.2204460492503101e-16 0.0373920405725039 0 0 0</pose>
+        <mass>0.059452141686696998</mass>
+        <inertia>
+          <ixx>2.2618917436130699e-05</ixx>
+          <ixy>2.9010878443459799e-20</ixy>
+          <ixz>-1.90582413132218e-20</ixz>
+          <iyy>2.8856933272491599e-05</iyy>
+          <iyz>2.07523072077304e-20</iyz>
+          <izz>3.6166464145773898e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_5_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_5.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_5_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_5.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 0.210784316 0.210784316 1</diffuse>
+          <ambient>1 0.210784316 0.210784316 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_5' type='revolute'>
+      <pose relative_to='link_5'>0.041194000000000001 0 0.051180999999999997 5.3140538134228708e-23 -0.086999000000000035 -3.1415853071795872</pose>
+      <parent>link_5</parent>
+      <child>link_6</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_6'>
+      <pose relative_to='joint_5'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.015507672718462401 4.4408920985006301e-15 0.048187056943607497 0 0 0</pose>
+        <mass>0.040102943291367002</mass>
+        <inertia>
+          <ixx>4.15706671935077e-05</ixx>
+          <ixy>5.7068844821258497e-20</ixy>
+          <ixz>-9.4694338582667198e-06</ixz>
+          <iyy>4.5583054906934102e-05</iyy>
+          <iyz>1.40501590125807e-19</iyz>
+          <izz>6.1876342629439198e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_6_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_6.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_6_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_6.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 0.25 1</diffuse>
+          <ambient>0.25 0.25 0.25 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_6' type='revolute'>
+      <pose relative_to='link_5'>-0.041194000000000001 0 0.051180999999999997 0 -0.31849 0</pose>
+      <parent>link_5</parent>
+      <child>link_7</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1</lower>
+          <upper>1</upper>
+          <effort>10</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_7'>
+      <pose relative_to='joint_6'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.015507672718458701 -4.2188474935755901e-15 0.0481870569436035 0 0 0</pose>
+        <mass>0.040102943291366898</mass>
+        <inertia>
+          <ixx>4.1570667193507599e-05</ixx>
+          <ixy>-3.1869614640443098e-20</ixy>
+          <ixz>-9.4694338582666808e-06</ixz>
+          <iyy>4.5583054906933899e-05</iyy>
+          <iyz>-1.1454466250389299e-19</iyz>
+          <izz>6.1876342629438597e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_7_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_7.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_7_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/venus/ros2_ws/src/cli_spawn/meshes/link_7.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 0.25 1</diffuse>
+          <ambient>0.25 0.25 0.25 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <ros2_control name="GazeboSimSystem" type="system">
+      <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+      <joint name="joint_0">
+        <command_interface name="position">
+          <param name="min">0.0</param>
+          <param name="max">1.0</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">1.0</param>
+        </state_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+      </joint>
+      <joint name="joint_1">
+        <command_interface name="position">
+          <param name="min">0.0</param>
+          <param name="max">1.0</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">1.0</param>
+        </state_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+      </joint>
+      <joint name="joint_2">
+        <command_interface name="position">
+          <param name="min">0.0</param>
+          <param name="max">1.0</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">1.0</param>
+        </state_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+      </joint>
+      <joint name="joint_3">
+        <command_interface name="position">
+          <param name="min">0.0</param>
+          <param name="max">1.0</param>
+        </command_interface>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+      </joint>
+    </ros2_control>
+    <!-- plugin -->
+    <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>/home/venus/ros2_ws/src/cli_spawn/connfig/myrobot_control.yaml</parameters>
+    </plugin>
+  </model>
+</sdf>

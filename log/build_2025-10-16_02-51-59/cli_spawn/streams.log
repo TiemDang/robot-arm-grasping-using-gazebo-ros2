@@ -1,0 +1,47 @@
+[0.497s] Invoking command in '/home/venus/ros2_ws/src/cli_spawn': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/cli_spawn build --build-base /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/build install --record /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/install.log --single-version-externally-managed install_data
+[0.661s] running egg_info
+[0.661s] creating build/cli_spawn/cli_spawn.egg-info
+[0.673s] writing build/cli_spawn/cli_spawn.egg-info/PKG-INFO
+[0.673s] writing dependency_links to build/cli_spawn/cli_spawn.egg-info/dependency_links.txt
+[0.673s] writing entry points to build/cli_spawn/cli_spawn.egg-info/entry_points.txt
+[0.673s] writing requirements to build/cli_spawn/cli_spawn.egg-info/requires.txt
+[0.673s] writing top-level names to build/cli_spawn/cli_spawn.egg-info/top_level.txt
+[0.673s] writing manifest file 'build/cli_spawn/cli_spawn.egg-info/SOURCES.txt'
+[0.696s] reading manifest file 'build/cli_spawn/cli_spawn.egg-info/SOURCES.txt'
+[0.696s] adding license file 'LICENSE'
+[0.697s] writing manifest file 'build/cli_spawn/cli_spawn.egg-info/SOURCES.txt'
+[0.697s] running build
+[0.697s] running build_py
+[0.697s] creating /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/build
+[0.697s] creating /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/build/lib
+[0.697s] creating /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/build/lib/cli_spawn
+[0.697s] copying cli_spawn/cli_spawn.py -> /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/build/lib/cli_spawn
+[0.697s] copying cli_spawn/cli_spawn_test.py -> /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/build/lib/cli_spawn
+[0.698s] copying cli_spawn/__init__.py -> /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/build/lib/cli_spawn
+[0.698s] running install
+[0.701s] running install_lib
+[0.713s] creating /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/lib/python3.12/site-packages/cli_spawn
+[0.713s] copying /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/build/lib/cli_spawn/cli_spawn.py -> /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/lib/python3.12/site-packages/cli_spawn
+[0.713s] copying /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/build/lib/cli_spawn/cli_spawn_test.py -> /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/lib/python3.12/site-packages/cli_spawn
+[0.713s] copying /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/build/lib/cli_spawn/__init__.py -> /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/lib/python3.12/site-packages/cli_spawn
+[0.714s] byte-compiling /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/lib/python3.12/site-packages/cli_spawn/cli_spawn.py to cli_spawn.cpython-312.pyc
+[0.714s] byte-compiling /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/lib/python3.12/site-packages/cli_spawn/cli_spawn_test.py to cli_spawn_test.cpython-312.pyc
+[0.714s] byte-compiling /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/lib/python3.12/site-packages/cli_spawn/__init__.py to __init__.cpython-312.pyc
+[0.715s] running install_data
+[0.715s] creating /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/share/ament_index
+[0.715s] creating /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/share/ament_index/resource_index
+[0.715s] creating /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/share/ament_index/resource_index/packages
+[0.715s] copying resource/cli_spawn -> /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/share/ament_index/resource_index/packages
+[0.715s] copying package.xml -> /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/share/cli_spawn
+[0.715s] creating /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/share/cli_spawn/worlds
+[0.715s] copying worlds/empty.world -> /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/share/cli_spawn/worlds
+[0.715s] creating /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/share/cli_spawn/launch
+[0.715s] copying launch/empty_world.launch.py -> /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/share/cli_spawn/launch
+[0.715s] creating /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/share/cli_spawn/urdf
+[0.715s] copying urdf/my_robot.xacro.sdf -> /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/share/cli_spawn/urdf
+[0.715s] running install_egg_info
+[0.730s] Copying build/cli_spawn/cli_spawn.egg-info to /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/lib/python3.12/site-packages/cli_spawn-0.0.0-py3.12.egg-info
+[0.730s] running install_scripts
+[0.818s] Installing cli_spawn script to /home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/lib/cli_spawn
+[0.818s] writing list of installed files to '/home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/install.log'
+[0.833s] Invoked command in '/home/venus/ros2_ws/src/cli_spawn' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/venus/ros2_ws/src/cli_spawn/install/cli_spawn/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/cli_spawn build --build-base /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/build install --record /home/venus/ros2_ws/src/cli_spawn/build/cli_spawn/install.log --single-version-externally-managed install_data

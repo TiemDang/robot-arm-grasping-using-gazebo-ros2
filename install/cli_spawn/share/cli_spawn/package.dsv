@@ -1,0 +1,6 @@
+source;share/cli_spawn/hook/pythonpath.ps1
+source;share/cli_spawn/hook/pythonpath.dsv
+source;share/cli_spawn/hook/pythonpath.sh
+source;share/cli_spawn/hook/ament_prefix_path.ps1
+source;share/cli_spawn/hook/ament_prefix_path.dsv
+source;share/cli_spawn/hook/ament_prefix_path.sh

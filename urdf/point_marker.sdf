@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="point_marker">
+    <static>true</static> <!-- model không bị vật lý chi phối -->
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <sphere>
+            <radius>0.01</radius> <!-- bán kính rất nhỏ -->
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient> <!-- đỏ -->
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+      </visual>
+      <pose>6.3951452373145479e-06 -0.7500012646474512 1.1569985871933826 5.1933531133806792e-06 -0.70710542084780681 2.61495846620968e-06 </pose> <!-- tọa độ x y z -->
+    </link>
+  </model>
+</sdf>
+

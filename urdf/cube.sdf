@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="square_block">
+    <static>false</static>
+
+    <!-- Link chính -->
+    <link name="link">
+      <!-- Visual -->
+      <visual name="visual">
+        <geometry>
+          <!-- Kích thước: size x y z (m). Thay đổi ở đây nếu cần) -->
+          <box>
+            <size>0.04 0.04 0.1</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.8 0.1 0.1 1</ambient>
+          <diffuse>0.9 0.2 0.2 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+
+      <!-- Collision (dùng để va chạm) -->
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.04 0.04 0.1</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+          <bounce>
+            <restitution_coefficient>0.0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+
+      <!-- Inertial: đặt tham số hợp lý cho khối 1x1x1, khối lượng 1kg -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.1666667</ixx>
+          <iyy>0.1666667</iyy>
+          <izz>0.1666667</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- Khởi tạo vị trí (tùy chỉnh) -->
+    <pose>0 0 0.5 0 0 0</pose> <!-- x y z roll pitch yaw: z=0.5 để khối cao nửa mét (khối cao 1m) -->
+  </model>
+</sdf>
