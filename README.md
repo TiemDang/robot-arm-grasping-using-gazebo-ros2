@@ -42,23 +42,26 @@ The objectives of this project :
 # Usage
 ## 1. Clone the repository
 ```bash
-git clone <repository_url>
-cd <repository_name>
+git clone https://github.com/TiemDang/robot-arm-grasping-using-gazebo-ros2.git
+```
+- Move directory robot-arm-grasping-using-gazebo-ros2 to ~/<ros2_workspace>/src
+```bash
+mv robot-arm-grasping-using-gazebo-ros2 ~/<your_ros2_workspace_name>/src/
 ```
 
 
 ## 2. Build the ROS 2 workspace
 ```bash
 source /opt/ros/<ros2_version>/setup.bash
-cd <ros2_workspace>
-colcon build --packages-select <packages_name>
+cd <your_ros2_workspace_name>
+colcon build --packages-select cli_spawn
 source install/setup.bash
 ```
 
 
 ## 3. Launch the simulation world
 ```bash
-ros2 launch <packages_name> empty_world.launch.py 
+ros2 launch cli_spawn empty_world.launch.py 
 ```
 This will start the Gazebo simulation with the robotic arm loaded into the environment.
 
@@ -66,7 +69,7 @@ This will start the Gazebo simulation with the robotic arm loaded into the envir
 ## 4. Run the learning process
 ### 4.1 Declare where to save results.
 ```bash 
-cd ~/<ros2_workspace>/src/cli_spawn/cli_spawn
+cd ~/<your_ros2_workspace_name>/src/robot-arm-grasping-using-gazebo-ros2/cli_spawn
 ```
 - Open file ga_calc.py
 - Modify the following line to specify the directory for saving training results:
@@ -85,7 +88,7 @@ ros2 run ros_gz_bridge parameter_bridge /world/default/control@ros_gz_interfaces
 ### 4.3 Run the Genetic Algorithm node.
 Open new terminal
 ```bash
-cd <ros2_workspace>
+cd <your_ros2_workspace_name>
 source install/setup.bash
 ros2 run <packages_name> ga_calc
 ```
@@ -94,7 +97,7 @@ ros2 run <packages_name> ga_calc
 ### 4.4 Run the end position reader node
 Open new terminal
 ```bash
-cd <ros2_workspace>
+cd <your_ros2_workspace_name>
 source install/setup.bash
 ros2 run <packages_name> read_end_point
 ```
@@ -103,15 +106,15 @@ ros2 run <packages_name> read_end_point
 ### 4.5 Run the robot control node.
 Open new terminal
 ```bash
-cd <ros2_workspace>
+cd <your_ros2_workspace_name>
 source install/setup.bash
-ros2 run <packages_name> control_position
+ros2 run cli_spawn control_position
 ```
 
 
 ## 5. Test training results
 ```bash
-cd ~/<ros2_workspace>/src/cli_spawn/cli_spawn
+cd ~/<your_ros2_workspace_name>/src/robot-arm-grasping-using-gazebo-ros2/cli_spawn
 ```
 - Open file test_control.py
 - Modify the following line to specify the trained model file: 
@@ -120,9 +123,9 @@ self.file_name = "<your/save/path/model_name.pkl>"
 ```
 - Open new terminal
 ```bash
-cd <ros2_workspace>
+cd <your_ros2_workspace_name>
 source install/setup.bash
-ros2 run <packages_name> test_control
+ros2 run cli_spawn test_control
 ```
 This will visualize the trained grasping result in the Gazebo simulation.
 
