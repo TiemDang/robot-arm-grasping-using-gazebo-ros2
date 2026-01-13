@@ -44,32 +44,16 @@ The objectives of this project :
 ```bash
 git clone https://github.com/TiemDang/robot-arm-grasping-using-gazebo-ros2.git
 ```
-- Move directory robot-arm-grasping-using-gazebo-ros2 to ~/<ros2_workspace>/src
+Move directory robot-arm-grasping-using-gazebo-ros2 into the src directory of your ROS2 workspace
 ```bash
-mv robot-arm-grasping-using-gazebo-ros2 ~/<your_ros2_workspace_name>/src/
+mv robot-arm-grasping-using-gazebo-ros2 ~/<your_ros2_workspace>/src/
 ```
 
 
-## 2. Build the ROS 2 workspace
-```bash
-source /opt/ros/<ros2_version>/setup.bash
-cd <your_ros2_workspace_name>
-colcon build --packages-select cli_spawn
-source install/setup.bash
-```
-
-
-## 3. Launch the simulation world
-```bash
-ros2 launch cli_spawn empty_world.launch.py 
-```
-This will start the Gazebo simulation with the robotic arm loaded into the environment.
-
-
-## 4. Run the learning process
-### 4.1 Declare where to save results.
+## 2. Modify some file.
+## 2.1 Declare where to save training results.
 ```bash 
-cd ~/<your_ros2_workspace_name>/src/robot-arm-grasping-using-gazebo-ros2/cli_spawn
+cd ~/<your_ros2_workspace>/src/robot-arm-grasping-using-gazebo-ros2/cli_spawn/
 ```
 - Open file ga_calc.py
 - Modify the following line to specify the directory for saving training results:
@@ -77,7 +61,93 @@ cd ~/<your_ros2_workspace_name>/src/robot-arm-grasping-using-gazebo-ros2/cli_spa
  self.save_dir = " <your/save/path> "
 ``` 
 
-### 4.2 Bridge parameter
+
+## 2.2 Declare path to load training results.
+```bash
+cd ~/<your_ros2_workspace_name>/src/robot-arm-grasping-using-gazebo-ros2/cli_spawn/
+```
+- Open file test_control.py
+- Modify the following line to specify the path to trained model file: 
+```bash
+self.file_name = "<your/save/path/model_name.pkl>"
+```
+- Note : I have some trained file save in models directory. If you want to run it instead of training :
+```bash
+cd ~/<your_ros2_workspace_name>/src/robot-arm-grasping-using-gazebo-ros2/cli_spawn/models/
+pwd
+```
+- Copy result of pwd command (example : your/path/to/folder/models)
+- Open file test_control.py and change to :
+```bash
+self.file_name = "your/path/to/folder/models/best_4.pkl>"
+```
+- If you want to change model, replace best_4.pkl to another .pkl file.
+
+
+## 2.3 Some change to robot urdf file.
+- Get full path to the meshes folder :
+```bash
+cd ~/<your_ros2_workspace_name>/src/robot-arm-grasping-using-gazebo-ros2/cli_spawn/meshes/
+pwd
+```
+- Copy results of pwd command (example : your/path/to/folder/meshes )
+- Then run this command :
+```bash
+cd ~/<your_ros2_workspace_name>/src/robot-arm-grasping-using-gazebo-ros2/cli_spawn/urdf/
+```
+- Open file my_robot.urdf
+- Modify all lines start with : filename="file:///home/....... /<file_name.STL>
+- Example like this line :
+```bash
+filename="file:///home/venus/ros2_ws/src/cli_spawn/meshes/base_link.STL" />
+```
+- Change to your path to .STL file on your computer :
+```bash
+filename="file:///your/path/to/folder/meshes/base_link.STL" />
+```
+- Save file
+- Get full path to the config folder :
+```bash
+cd ~/<your_ros2_workspace_name>/src/robot-arm-grasping-using-gazebo-ros2/cli_spawn/config/
+pwd
+```
+- Copy results of pwd command (example : your/path/to/folder/config )
+- Then :
+```bash
+cd ~/<your_ros2_workspace_name>/src/robot-arm-grasping-using-gazebo-ros2/cli_spawn/urdf/
+```
+- Open file my_robot.urdf
+- Modify this line :
+```bash
+<parameters>/home/venus/ros2_ws/src/cli_spawn/config/myrobot_control.yaml</parameters>
+```
+- Change to this :
+```bash
+<parameters>/your/path/to/folder/config/myrobot_control.yaml</parameters>
+```
+- Save file
+
+
+## 3. Build the ROS 2 workspace
+```bash
+source /opt/ros/<ros2_version>/setup.bash
+cd <ros2_workspace>
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y
+colcon build --packages-select cli_spawn
+source install/setup.bash
+```
+
+
+## 4. Launch the simulation world
+```bash
+ros2 launch cli_spawn empty_world.launch.py 
+```
+This will start the Gazebo simulation with the robotic arm loaded into the environment.
+
+
+## 5. Run the learning process
+### 5.1 Bridge parameter
 Open new terminal
 ```bash
 source /opt/ros/<ros2_version>/setup.bash
@@ -85,47 +155,48 @@ ros2 run ros_gz_bridge parameter_bridge /world/default/control@ros_gz_interfaces
 ```
 
 
-### 4.3 Run the Genetic Algorithm node.
+### 5.2 Run the Genetic Algorithm node.
 Open new terminal
 ```bash
 cd <your_ros2_workspace_name>
 source install/setup.bash
 ros2 run <packages_name> ga_calc
 ```
+This node evaluates each individual in the Genetic Algorithm population and evolves new generations.
+Each individual corresponds to a set of joint angle values for the robotic arm used to perform object grasping.
 
 
-### 4.4 Run the end position reader node
+### 5.3 Run the end position reader node
 Open new terminal
 ```bash
 cd <your_ros2_workspace_name>
 source install/setup.bash
 ros2 run <packages_name> read_end_point
 ```
+This node is responsible for reading the state of the robotic arm and the target object.
+The collected data is published to a ROS 2 topic and read by the Genetic Algorithm node for fitness evaluation and generate new generations.
 
 
-### 4.5 Run the robot control node.
+### 5.4 Run the robot control node.
 Open new terminal
 ```bash
 cd <your_ros2_workspace_name>
 source install/setup.bash
 ros2 run cli_spawn control_position
 ```
+This node is responsible for evaluating individuals generated by the Genetic Algorithm node and publishing the corresponding joint angle values to the robot control topic.
 
 
-## 5. Test training results
-```bash
-cd ~/<your_ros2_workspace_name>/src/robot-arm-grasping-using-gazebo-ros2/cli_spawn
-```
-- Open file test_control.py
-- Modify the following line to specify the trained model file: 
-```bash
-self.file_name = "<your/save/path/model_name.pkl>"
-```
-- Open new terminal
+### 5.5 Video demo training process.
+![Training demo](results/video_result.mp4)
+
+
+## 6. Test training results
+Open new terminal
 ```bash
 cd <your_ros2_workspace_name>
 source install/setup.bash
-ros2 run cli_spawn test_control
+ros2 run cli_spawn test_ctrl
 ```
 This will visualize the trained grasping result in the Gazebo simulation.
 
