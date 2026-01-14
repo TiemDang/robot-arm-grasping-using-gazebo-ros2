@@ -61,9 +61,8 @@ class GA_calc(Node):
         self.save_raw_gene = None
         
         # GA memo
-        self.GA_init = Genetic_Algo([-1, 1],[-1, 1], self.population_size, 756, 3)
-        self.raw_population = self.GA_init.create_population() # create generation 1
-        self.decode_population = self.GA_init.decode_gen(self.raw_population) # decode generation 1
+        self.GA_init = Genetic_Algo(min = -1, max = 1, population_size = self.population_size, num_chromo = 756)
+        self.population = self.GA_init.create_population() # create generation 1
         self.theta_population = [] # result theta
         self.error_log = [] # fitness
 
@@ -148,10 +147,9 @@ class GA_calc(Node):
                       f"Best theta : {self.final_theta}, Best fitness : {self.final_fitness}"
                 )
                 # Starting new gen
-                selection_pop = self.GA_init.selection(self.error_log, self.raw_population)
+                selection_pop = self.GA_init.selection(self.error_log, self.population)
                 cross_over_pop = self.GA_init.crossover(selection_pop)
-                self.raw_population = self.GA_init.mutation(cross_over_pop, 0.1)
-                self.decode_population = self.GA_init.decode_gen(self.raw_population) # decode will go to ga_publisher > convert to theta_pop then publish
+                self.population = self.GA_init.mutation(cross_over_pop, mutation_rate = 0.1, sigma = 0.05)
                 self.error_log = [] # reset error log
 
                 # Update state
@@ -184,7 +182,7 @@ class GA_calc(Node):
         new_theta_population = []
         
         self.get_logger().info(f"Generation {generation}/{self.generation}...")
-        for idx, individual in enumerate(self.decode_population):
+        for idx, individual in enumerate(self.population):
             w = np.reshape(individual[:588], (14, 42))
             v = np.reshape(individual[588:], (42, 4))
             x = np.array([self.x_default, self.y_default, self.z_default, self.ox_default, self.oy_default, self.oz_default, self.ow_default,
